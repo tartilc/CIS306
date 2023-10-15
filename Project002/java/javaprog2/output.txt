@@ -1,0 +1,26 @@
+             MATCHED               STACK                    INPUT              ACTION
+                                      E$              (id*id)+id$                    
+                                    TE'$              (id*id)+id$          output E -> TE'
+                                  FT'E'$              (id*id)+id$          output T -> FT'
+                                (E)T'E'$              (id*id)+id$          output F -> (E)
+                   (             E)T'E'$               id*id)+id$                  match (
+                   (           TE')T'E'$               id*id)+id$          output E -> TE'
+                   (         FT'E')T'E'$               id*id)+id$          output T -> FT'
+                   (        idT'E')T'E'$               id*id)+id$           output F -> id
+                 (id          T'E')T'E'$                 *id)+id$                 match id
+                 (id        *FT'E')T'E'$                 *id)+id$        output T' -> *FT'
+                (id*         FT'E')T'E'$                  id)+id$                  match *
+                (id*        idT'E')T'E'$                  id)+id$           output F -> id
+              (id*id          T'E')T'E'$                    )+id$                 match id
+              (id*id            E')T'E'$                    )+id$           output T' -> e
+              (id*id              )T'E'$                    )+id$           output E' -> e
+             (id*id)               T'E'$                     +id$                  match )
+             (id*id)                 E'$                     +id$           output T' -> e
+             (id*id)               +TE'$                     +id$        output E' -> +TE'
+            (id*id)+                TE'$                      id$                  match +
+            (id*id)+              FT'E'$                      id$          output T -> FT'
+            (id*id)+             idT'E'$                      id$           output F -> id
+          (id*id)+id               T'E'$                        $                 match id
+          (id*id)+id                 E'$                        $           output T' -> e
+          (id*id)+id                   $                        $           output E' -> e
+
